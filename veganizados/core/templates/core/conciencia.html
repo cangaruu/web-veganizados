@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Contenido -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-11 col-md-9 text-center">
+        <h1 class="mt-5 mb-4 wow pulse">Conciencia Vegana</h1>
+        <p class="lead">Un vegano es alguien que vive sin explotar animales, por el beneficio de los animales, la gente y el planeta. Los veganos se alimentan de una dieta basada en vegetales y plantas, con nada que provenga de los animales (sin carne, leche, huevos o miel, por ejemplo). El estilo de vida vegano también evita el cuero, lana, seda y otros productos de vestir o para cualquier otro propósito. <br> <br> Con tan solo un bocado, tú puedes cambiar la manera en que los animales son tratados, ayudar al planeta y estar más sano! Al revisar detenidamente tus opciones, tomar decisiones informadas sobre lo que pones en tu plato, tú tienes la oportunidad de hacer la diferencia en cada comida –para dar tu voto contra la crueldad hacia los animales y la degradación ambiental – y lograr todo esto al alimentarte de una mejor manera que con comidas a base de carne.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5 pt-5" id="porqueser">
+     <h2 class="text-center display-4 mb-4">¿Por qué ser Vegano?</h2>
+      <div class="row justify-content-center">
+          <div class="media col-11 col-md-6 my-2">
+          <div class="wow zoomInLeft col-2 col-xs-2 col-md-3 col-lg-2" data-wow-delay="1.1s">
+          <img src="{% static 'core/imagenes/conciencia-animales.png' %}" class="align-self-start mr-3 img-fluid" alt="Concientización Animal"> </div>
+          <div class="wow zoomInRight media-body " data-wow-delay="1.2s">
+            <h5 class="mt-0 h3 text-warning">Derechos Animales</h5>
+            <p class="lead">La industria de producción de alimentos de origen animal es excesivamente cruel, incluso en las supuestas granjas felices. <br> 
+            El urbanismo y la falta de contacto con animales de otras especies nos distancian del daño y sufrimiento que generamos en los animales siguiendo un estilo de vida no Vegan. El acceso a la información gracias a internet evidencia cada vez mas esta realidad y más personas optan por llevar una vida ética.</p>
+          </div>
+          </div>
+        <div class="media col-11 col-md-6 my-2">
+          <div class="wow zoomInLeft col-2 col-xs-2 col-md-3 col-lg-2" data-wow-delay="1.3s">
+          <img src="{% static 'core/imagenes/conciencia-planeta.png' %}" class="align-self-start mr-3 img-fluid" alt="Concientización Ambiental"> </div>
+          <div class="wow zoomInRight media-body " data-wow-delay="1.4s">
+            <h5 class="mt-0 h3 text-warning">Impacto Ambiental</h5>
+            <p class="lead">Las grandes organizaciones ambientales reconocen el impacto negativo que genera la producción de animales para consumo humano. <br> Se calcula que para producir un kilo de carne se utilizan 15 mil litros de agua. La industria ganadera genera mas c02 que toda la industria de transporte junta. Es decir, más que todos los aviones, barcos, trenes y automóviles echando humo a la atmósfera. La principal causa de deforestación es la producción de alimentos para alimentar ganado.</p>
+          </div>
+          </div>
+          <div class="media col-11 col-md-6 my-2">
+          <div class="wow zoomInLeft col-2 col-xs-2 col-md-3 col-lg-2"data-wow-delay="0.3s">
+          <img src="{% static 'core/imagenes/conciencia-futuro.png' %}" class="align-self-start mr-3 img-fluid" alt="Concientización a futuro"> </div>
+          <div class="wow zoomInRight media-body " data-wow-delay="0.4s">
+            <h5 class="mt-0 h3 text-warning">El Futuro es Vegano</h5>
+            <p class="lead">Grandes empresarios como Bill Gates, Richard Branson, Erick Smith invierten en el desarrollo de leches vegetales, carnes sin colesterol vegetales y todo tipo de productos que son aclamados por la critica culinaria. A largo plazo es insostenible un crecimiento de la población humana alimentando animales para consumo en lugar de basar nuestra dieta en alimentos de origen vegetal.</p>
+          </div>
+          </div>
+          <div class="media col-11 col-md-6 my-2">
+          <div class="wow zoomInLeft col-2 col-xs-2 col-md-3 col-lg-2" data-wow-delay="0.5s">
+          <img src="{% static 'core/imagenes/conciencia-salud.png' %}" class="align-self-start mr-3 img-fluid" alt="Concientización sobre la Salud"> </div>
+          <div class="wow zoomInRight media-body "data-wow-delay="0.6s">
+            <h5 class="mt-0 h3 text-warning">Salud</h5>
+            <p class="lead">Los beneficios en la salud al seguir un estilo de vida Vegan son enormes. Médicos y científicos reconocidos apoyan una dieta basada en plantas para evitar y revertir enfermedades graves como la obesidad, el colesterol y algunos tipos de cancer. La proteína animal esta en la mira como culpable de muchas enfermedades, la Organización Mundial de la Salud (OMS) considera el consumo de carne tan cancerígeno como el consumo de tabaco.</p>
+          </div>
+          </div>
+      </div>
+
+  </div>
+  <!-- cierre contenido -->
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+{% endblock %}

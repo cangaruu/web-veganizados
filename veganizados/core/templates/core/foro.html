@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido -->
+
+<div class="fondo-cesped">
+ <div class="fondo-alpha">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="wow tada mt-5" data-wow-delay="0.2s">Foro</h1>
+        <p class="lead">Accede a nuestro foro online para debatir e informarte junto a otros usuarios.</p>
+      </div>
+    </div>
+  </div>
+  
+<div class="container pb-5">
+<div class="row justify-content-center">
+    <div class="col-10 col-md-6 col-lg-4 pb-4">
+        <div class="wow zoomInLeft card border-primary" data-wow-delay="0.7s">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="card-title text-center p-2 veganizados h3">Ingresá</h5>
+            </div>
+            <div class="card-body">
+                <form accept-charset="UTF-8" role="form" action="#">
+                    <fieldset>
+                       <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <input type="text" placeholder="Usuario" name="name" class="form-control">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                <input type="password" placeholder="Contraseña" name="password" class="form-control" value="">
+                            </div>
+                            
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input name="remember" type="checkbox" value="Remember Me"> Recuerdame
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input class="btn btn-lg btn-dark btn-block" type="submit" value="Ingresá">
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                </form>                         
+            </div>
+        </div>
+    </div>
+     <div class="col-10 col-md-6 col-lg-4 pb-4">
+        <div class="wow zoomInRight card border-primary" data-wow-delay="0.7s">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="card-title text-center p-2 veganizados h3">Registrate</h5>
+            </div>
+            <div class="card-body">
+                <form accept-charset="UTF-8" role="form" action="#">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                <input type="text" placeholder="tu_mail@example.com" name="email" class="form-control">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                <input type="text" placeholder="Nombre usuario" name="name" class="form-control">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                <input type="password" placeholder="Contraseña" name="password" class="form-control" value="">
+                            </div>                            
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                <input type="password" placeholder="Confirmá contraseña" name="confirm-password" class="form-control" value="">
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input class="btn btn-lg btn-dark btn-block" type="submit" value="Registrame">
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                </form>                         
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+ </div>
+ {% endblock %}
+{% block scripts %}
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+{% endblock %}

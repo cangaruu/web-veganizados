@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido -->
+  <div class="container mt-5">
+        
+        {% for data in sobremi %}
+
+        <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-7 col-md-5 col-lg-4">
+                <div class="wow zoomInLeft card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <img src="{{data.image.url}}" alt="Foto de perfil de Creadora del Sitio" class="img-fluid rounded mx-auto d-block">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <h2 class="display-4">Floriana</h2>                    
+                                <p>Creadora del Sitio</p>
+                            </div>
+                        </div>                
+                    </div>
+                </div>
+            </div>
+            <div class="col-10 col-md-7 col-lg-5">
+                <h2 class="wow zoomInRight text-center text-md-left mt-3 mt-md-0">{{ data.title }}</h2>
+                
+                <p class="wow zoomInRight" data-wow-delay="0.4s">{{data.content|safe}}</p>
+
+                {% if user.is_authenticated %}
+                    <p> <a href="{% url 'admin:sobremi_sobremi_change' 1 %}"> Editar </a> </p>
+                  {% endif %}
+
+               <div class="wow tada btn btn-warning" data-wow-delay="1.2s">
+                <a href="" target="_blank">Ir a mi Sitio</a>
+                </div>
+            </div>
+        </div>        
+        {% endfor %}
+         
+    </div>
+<!-- cierre de contenido -->
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+
+{% endblock %}

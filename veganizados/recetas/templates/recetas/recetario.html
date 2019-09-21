@@ -1,0 +1,75 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Contenido -->
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="mt-5 wow tada" data-wow-delay="1.7s">Recetario</h1>
+        <p class="lead"></p>
+      </div>
+    </div>
+    
+    <div class="row">
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4">
+              <a data-fancybox="galeria" data-caption="Receta de Empanadas de Soja Veganas" href="{% static 'core/imagenes/receta1-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta1-chica.jpg' %}" alt="Receta de Empanadas de Soja Veganas" class="img-fluid mb-4">
+                </a>
+          </div>
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4"data-wow-delay="0.3s">
+              <a data-fancybox="galeria" data-caption="Receta de Queso de Papa 'Paparella'" href="{% static 'core/imagenes/receta2-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta2-chica.jpg' %}" alt="Receta de Queso de Papa 'Paparella'" class="img-fluid mb-4">
+                </a>
+          </div>
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4" data-wow-delay="0.6s">
+              <a data-fancybox="galeria" data-caption="Receta de Brownie Vegano con Nuez" href="{% static 'core/imagenes/receta3-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta3-chica.jpg' %}" alt="Receta de Brownie Vegano con Nuez" class="img-fluid mb-4">
+                </a>
+          </div>
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4" data-wow-delay="0.9s">
+              <a data-fancybox="galeria" data-caption="Receta de Pastel de Papa Vegano de Lentejas" href="{% static 'core/imagenes/receta4-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta4-chica.jpg' %}" alt="Receta de Pastel de Papa Vegano de Lentejas" class="img-fluid mb-4">
+                </a>
+          </div>
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4" data-wow-delay="1.2s">
+              <a data-fancybox="galeria" data-caption="Receta de Helado de Banana Vegano" href="{% static 'core/imagenes/receta5-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta5-chica.jpg' %}" alt="Receta de Helado de Banana Vegano" class="img-fluid mb-4">
+                </a>
+          </div>
+          <div class="wow zoomInLeft col-12 col-md-6 col-lg-4" data-wow-delay="1.5s">
+              <a data-fancybox="galeria" data-caption="Receta de Hamburguesas de Lentejas Veganas" href="{% static 'core/imagenes/receta6-grande.jpg' %}">
+                    <img src="{% static 'core/imagenes/receta6-chica.jpg' %}" alt="Receta de Hamburguesas de Lentejas Veganas" class="img-fluid mb-4">
+                </a>
+          </div>
+      </div>
+      {% for r in receta %}
+
+        <div class="wow zoomInLeft col-12 col-md-6 col-lg-4" data-wow-delay="1.5s">
+              <a data-fancybox="galeria" data-caption="{{r.name}}" href="{{r.imageG.url}}">
+                    <img src="{{r.imageC.url}}" alt="{{r.name}}" class="img-fluid mb-4">
+                </a>
+                <p>{{r.content|safe}}</p>
+
+                {% if user.is_authenticated %}
+                    <p> <a href="{% url 'admin:recetas_receta_change' r.id %}"> Editar </a> </p>
+                  {% endif %}
+          </div>
+
+        {% endfor %}
+  </div>
+
+
+{% endblock %}  
+{% block scripts %}
+    <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'core/vendor/fancybox/jquery.fancybox.js' %}"></script> <!-- fancy -->
+    <script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+{% endblock %}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Un sitio web sobre Veganísmo">
+  <meta name="author" content="Floriana Carolina Oviedo">
+  <meta name="keywords" content="veganismo,vegano,vegan,vegana,veganizate,veganizados,veganizar,animales,crueldad,libertad,nutricion,conciencia,recetas,recetario,vacas,pollos,pajaros,cabras,ovejas">
+
+  <title>Veganizados</title>
+
+  {% load static %}
+
+  {% if request.path == '/recetario/' %}
+  <link rel="stylesheet" href="{% static 'core/vendor/fancybox/jquery.fancybox.css'%}">
+  {% endif %}
+  
+  <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'core/estilo-mio-y-theme/theme_1559707043950.css' %}">
+  <link rel="stylesheet" href="{% static 'core/fuentes/stylesheet.css' %}">
+  <link rel="stylesheet" href="{% static 'core/icomoon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/vendor/animate/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'core/estilo-mio-y-theme/estilopropio.css' %}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{% static 'core/imagenes/favicon/apple-icon-57x57.png' %}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{% static 'core/imagenes/favicon/apple-icon-60x60.png' %}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{% static 'core/imagenes/favicon/apple-icon-72x72.png' %}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{% static 'core/imagenes/favicon/apple-icon-76x76.png' %}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{% static 'core/imagenes/favicon/apple-icon-114x114.png' %}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{% static 'core/imagenes/favicon/apple-icon-120x120.png' %}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'core/imagenes/favicon/apple-icon-144x144.png' %}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{% static 'core/imagenes/favicon/apple-icon-152x152.png' %}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/imagenes/favicon/apple-icon-180x180.png' %}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'core/imagenes/favicon/android-icon-192x192.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/imagenes/favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{% static 'core/imagenes/favicon/favicon-96x96.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/imagenes/favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'core/imagenes/favicon/manifest.json' %}">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="{% static 'core/imagenes/favicon/ms-icon-144x144.png' %}">
+        <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+
+<!-- Navegacion -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top" id="MiMenu">
+    <div class="container">
+      <a class="navbar-brand veganizados" href="{% url 'index' %}">VEGANIZADOS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'index' %}">Inicio
+              <span class="sr-only">(actual)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'conciencia' %}">Conciencia Vegana</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nutricion' %}">Zona Nutricional</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'recetario' %}">Recetario</a>
+          </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'emprendimientos' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Amigos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'emprendimientos' %}">Santuarios, Organizaciones Animalístas y Activístas</a>
+                          <a class="dropdown-item" href="{% url 'emprendimientos' %}#comida">Emprendimientos de comida</a>
+                          <a class="dropdown-item" href="{% url 'emprendimientos' %}#cosmeticos">Emprendimientos de Ropa y Cosmética</a>
+                          <a class="dropdown-item" href="{% url 'emprendimientos' %}#restaurantes">Restaurantes en C.A.B.A.</a>
+                        </div>
+                      </li>
+         
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Información Útil
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'info' %}">Documentales</a>
+                          <a class="dropdown-item" href="{% url 'info' %}#libros">Libros</a>
+                          <a class="dropdown-item" href="{% url 'info' %}#charlas">Charlas y Podcasts</a>
+                          <a class="dropdown-item" href="{% url 'info' %}#apps">Apps</a>
+                          <a class="dropdown-item" href="{% url 'info' %}#canales">Canales de Youtube</a>
+                          <a class="dropdown-item" href="{% url 'info' %}#chicos">Para Niños</a>
+                        </div>
+                      </li>
+                      
+            
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<body>
+{% block content %}{% endblock %}
+</body>
+<!-- Pie de pagina -->
+
+    <footer class="bg-dark container-fluid text-white py-5 mt-5">
+     <ul class="row nav justify-content-center lista-redes">
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.facebook.com/" target="_blank"><span class="icon-ico-fb"></span>Facebook</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.twitter.com/" target="_blank"><span class="icon-ico-twitter"></span>Twitter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.instagram.com/" target="_blank"><span class="icon-ico-insta"></span>Instagram</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contacto' %}"><span class="icon-ico-contacto"></span>Contacto</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'autora' %}"><span class="icon-ico-autora"></span>Acerca de</a>
+      </li> 
+    </ul>
+    <div class="row text-primary justify-content-center mt-3 mt-md-4"> <p> Front-end: Floriana Oviedo · Back-end: <a href="https://www.linkedin.com/in/facundo-gallardo-b93869188/">Facundo Gallardo</a></p>
+          </div>
+    
+  </footer>
+
+{% block scripts %}{% endblock %}
+
+</body>
+
+</html>

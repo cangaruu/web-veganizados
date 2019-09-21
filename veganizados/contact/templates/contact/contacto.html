@@ -1,0 +1,80 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Contenido -->
+
+  <div class="container mt-5">
+            <div class="row justify-content-md-center mt-5">
+        <div class="col-10 col-md-7 mt-5">
+            <div class="wow zoomInDown card nuevo-light" data-wow-delay="0.4">
+                <div class="wow pulse card-header text-center bg-secondary text-light p-3 veganizados h3"  data-wow-delay="1s">Contactáte con Veganizados</div>
+                <div class="card-body">
+
+
+
+{% if 'ok' in request.GET %}
+  <p> <b> El mensaje se ha enviado </b> </p>
+{% endif %}
+ 
+
+                    <form action="#" method="POST">
+                    {% csrf_token %}
+                       <div class="form-group">
+                            <label for="Nombre">Nombre</label>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email">Correo Electronico</label>
+                             {{ form.email }}
+                             {{ form.email.errors }}
+                        </div>
+
+
+                        <div class="form-group">
+                          <label for="inputState">¿Sos vegano o vegetariano?</label>
+                          {{ form.eleccion }}
+                          {{ form.eleccion.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">¿Formas parte de un Emprendimiento u Organización? (Podemos agregarte en nuestros listados)</label>
+                            {{ form.organizacion }}
+                            {{ form.organizacion.errors }}
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputMessage">Dejanos un mensaje</label>
+                              {{ form.content }}
+                              {{ form.content.errors }}
+                            </div>
+                        
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+                          <label class="form-check-label" for="inlineCheckbox1">Quiero suscribirme para recibir el boletín semanal</label>
+                        </div>
+                        <button type="submit" class="wow pulse btn btn-dark mx-5 p-2">Enviar</button>
+                    </form>
+                    
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  {% endblock %}
+{% block scripts %}
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+{% endblock %}
+
+</html>

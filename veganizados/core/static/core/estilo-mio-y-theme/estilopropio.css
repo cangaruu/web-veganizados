@@ -1,0 +1,113 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'barlowregular';
+    background-image: url(../imagenes/fondo3.jpg);
+    background-attachment: fixed;
+    background-size: cover;        
+}
+h1,h2,.veganizados{
+    font-family: 'cagliostroregular';
+}
+.fondo-cesped{
+    background-image: url(../imagenes/fondo1.jpg)
+}
+.btn-index{
+    margin-top: 75px;
+    font-family: 'cagliostroregular';
+    text-align: center;
+    font-size: 30px;
+}
+.fondo-imagen{
+    background-image: url(../imagenes/fondo5.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+}
+.fondo-alpha {
+    background: linear-gradient(rgba(255,255,255,.75),rgba(0,0,0,.75));
+}
+.reglas{
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+}
+ul{
+    font-size: 20px;
+}
+nav{
+    padding: 10px 0;
+}
+.lista-redes span{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    text-shadow: 1px -1px 0 black ;
+}
+.nuevo-light{
+    background-color: rgba(255, 255, 255, 0.53);
+}
+.mapa{
+    max-width: 100%;
+    max-height: auto;
+}
+
+.contenido-principal {
+
+    padding-bottom: 20px; 
+}
+.input:invalid {
+  border: 1px solid red;
+}
+header{
+    opacity: 0;
+}
+input:valid {
+  border: 1px solid green;
+}
+.titulo2{
+    opacity: 100;
+}
+.boton-index:hover{
+    opacity: 0.4;
+}
+.vaca-arriba{
+/*
+    right: -31px;
+    bottom: -48px;
+    width: 233px;
+*/
+    position: sticky; /*se mantiene "dentro" del ancestro".. no se solapa con el footer*/
+    bottom:20px;
+    left: 100vw;
+    
+   display: inline-block;
+   transition: all .5s linear;
+    opacity: 1;
+    transform: translateX(0);
+    
+}
+.vaca-arriba.ocultar{ opacity:0 ;transform: translateY(20px);}
+
+
+.vaca-arriba img {width: 60px;  height: auto;}
+
+.sin-puntos{
+    list-style: none;
+padding-left: 0;}
+
+@media screen and (min-width: 800px) {
+   .vaca-arriba img{
+    width: 180px; 
+    height: auto;
+    } 
+    header{
+        opacity: 100;
+        background-image: url(../imagenes/header.jpg);
+    background-size:cover;
+    background-attachment: fixed;
+        height: 1080px;
+    }
+    .titulo2{
+        opacity: 0;    }
+}

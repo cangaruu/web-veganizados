@@ -1,0 +1,300 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+  <!-- Contenido -->
+  <div  class="container mt-5">
+
+  
+        <h2 class="wow pulse text-center pt-5">Organizaciones animalistas, Santuarios y Grupos Activistas</h2>
+        
+        <div class="row justify-content-center mb-md-5 mt-3 mt-md-4">
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3">
+                <img src="{% static 'core/imagenes/1-voicot.jpg' %}" alt="Grupo activista Voicot por los Derechos Animales" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="http://voicot.com/" target="_blank" class="btn btn-dark btn-block mt-2">VOICOT</a>
+            </div>
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3" data-wow-delay="0.3s">
+                <img src="{% static 'core/imagenes/1-anonymouss.jpg' %}" alt="Anonymous For The Voiceless (cubo de la verdad)" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/groups/326346577766808/" target="_blank" class="btn btn-dark btn-block mt-2">Anonymous For The Voiceless</a>
+            </div>
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3" data-wow-delay="0.6s">
+                <img src="{% static 'core/imagenes/1-animal-libre.jpg' %}" alt="Animal Libre" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/AnimalLibreArgentina" target="_blank" class="btn btn-dark btn-block mt-2">Animal Libre</a>
+            </div>
+        
+        
+            <div class="wow rotateInDownRight col-8 col-md-3 mb-3"data-wow-delay="1.5s">
+                <img src="{% static 'core/imagenes/1-activistas-unidxs.jpg' %}" alt="Grupo Activistas Unidxs" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/Activistasunidxs/" target="_blank" class="btn btn-dark btn-block mt-2">Activistas Unidxs</a>
+            </div>
+            <div class="wow rotateInDownRight col-8 col-md-3 mb-3"data-wow-delay="1.2s">
+                <img src="{% static 'core/imagenes/1-alfa.jpg' %}" alt="ALFA: Amor y Lucha en Favor de los Animales" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/alfaanimalista/" target="_blank" class="btn btn-dark btn-block mt-2">A.L.F.A.</a>
+            </div>
+            <div class="wow rotateInDownRight col-8 col-md-3 mb-3"data-wow-delay="0.9s">
+                <img src="{% static 'core/imagenes/1-sinzoo.png' %}" alt="Organización Sin Zoo" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/SinZooArgentina/" target="_blank" class="btn btn-dark btn-block mt-2">Sin Zoo</a>
+            </div>
+            <div class="wow rotateInDownRight col-8 col-md-3 mb-3"data-wow-delay="0.9s">
+                <img src="{% static 'core/imagenes/1-red-animalista.png' %}" alt="Red Animalísta C.A.B.A." class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://redanimalista.com/" target="_blank" class="btn btn-dark btn-block mt-2">Red Animalísta</a>
+            </div>
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3"data-wow-delay="0.9s">
+                <img src="{% static 'core/imagenes/1-santuario-igualdad.jpg' %}" alt="Santuario Igualdad" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.santuarioigualdad.org/" target="_blank" class="btn btn-dark btn-block mt-2">Santuario Igualdad</a>
+            </div>
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3"data-wow-delay="1.2s">
+                <img src="{% static 'core/imagenes/1-santuario-jaulasvacias.png' %}" alt="Santuario Jaulas Vacías" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/SantuarioJV/?ref=br_rs" target="_blank" class="btn btn-dark btn-block mt-2">Santuario Jaulas Vacías</a>
+            </div>
+            
+            
+            <!-- Dinamico -->
+            {% for a in amigos %}
+                    {% if a.name == 'Organizaciones animalistas, Santuarios y Grupos Activistas' %}
+                        {% for post in a.get_posts.all %}
+            <div class="wow rotateInDownLeft col-8 col-md-3 mb-3"data-wow-delay="1.2s">
+                <img src="{{ post.image.url }}" alt="{{ post.name }}" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="{{ post.url }}" target="_blank" class="btn btn-dark btn-block mt-2">{{ post.name }}</a>
+                {% if user.is_authenticated %}
+                    <p> <a href="{% url 'admin:emprendimientos_emprendimiento_change' post.id %}"> Editar </a> </p>
+                  {% endif %}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        
+        </div>
+
+
+
+     
+        <!-- GASTRONOMICOS -->
+        
+    <h2 id="comida" class="wow pulse text-center pt-5" data-wow-delay="0.2s">Emprendimientos gastronómicos</h2>
+         <div class="row justify-content-center mb-md-5 ">
+            <div class="wow bounceInUp col-8 col-md-3 mb-3" data-wow-delay="0.5s">
+                <img src="{% static 'core/imagenes/2-pacha.jpg' %}" alt="Pacha Gourmet Emprendimiento de comida vegana en C.A.B.A." class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/AlimentosConscientesOficial/" target="_blank" class="btn btn-dark btn-block mt-2">Pacha Gourmet</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3" data-wow-delay="0.5s">
+                <img src="{% static 'core/imagenes/2-hells_satan.jpg' %}" alt="Hell's Seitan Comida vegana para frizar, se especializan en Seitan." class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/HellSeitan/" target="_blank" class="btn btn-dark btn-block mt-2">Hell's Seitan</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3" data-wow-delay="0.5s">
+                <img src="{% static 'core/imagenes/2-chanchito.jpg' %}" alt="Chanchito Vegano Comida vegana para frizar y viandas." class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/ChanchitoVeganoCocina/" target="_blank" class="btn btn-dark btn-block mt-2">Chanchito Vegano</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3" data-wow-delay="0.5s">
+                <img src="{% static 'core/imagenes/2-sabor-vegano.jpg' %}" alt="Sabor Vegano Comida vegana en C.A.B.A. desde 2011" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/SaborVegano.2011/" target="_blank" class="btn btn-dark btn-block mt-2">Sabor Vegano</a>
+            </div>
+            
+            <!-- Dinamico -->
+            {% for a in amigos %}
+                    {% if a.name == 'Emprendimientos gastronómicos' %}
+                        {% for post in a.get_posts.all %}
+
+            <div class="wow bounceInUp col-8 col-md-3 mb-3" data-wow-delay="0.5s">
+                <img src="{{ post.image.url }}" alt="{{ post.name }}" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="{{ post.url }}" target="_blank" class="btn btn-dark btn-block mt-2">{{ post.name }}</a>
+                {% if user.is_authenticated %}
+                    <p> <a href="{% url 'admin:emprendimientos_emprendimiento_change' post.id %}"> Editar </a> </p>
+                  {% endif %}
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>   
+        
+        <!-- ROPA -->
+        
+    <h2 id="cosmeticos" class="text-center pt-5 wow pulse" data-wow-delay="0.4s">Emprendimientos de ropa y cosmética</h2>
+         <div class="row justify-content-center mb-md-5 ">
+            <div class="wow bounceInUp col-8 col-md-3 mb-3"data-wow-delay="0.6s">
+                <img src="{% static 'core/imagenes/3-lou-dog.jpg' %}" alt="Lou Dog Remeras Veganas" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/Lou-Dog-Remeras-466069233455498/" target="_blank" class="btn btn-dark btn-block mt-2">Lou Dog Remeras</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3"data-wow-delay="0.6s">
+                <img src="{% static 'core/imagenes/3-newen-cosmetica.jpg' %}" alt="NEWEN Cosmética & Fitoterapia Vegana" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/productosnewen/" target="_blank" class="btn btn-dark btn-block mt-2">NEWEN Cosmética y Fitoterapia</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3"data-wow-delay="0.6s">
+                <img src="{% static 'core/imagenes/3-suskin-cosmetica.jpg' %}" alt="Suskin Belleza Natural, Cosmética Vegana" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/suskin.aceites/" target="_blank" class="btn btn-dark btn-block mt-2">Suskin Belleza Natural</a>
+            </div>
+            <div class="wow bounceInUp col-8 col-md-3 mb-3"data-wow-delay="0.6s">
+                <img src="{% static 'core/imagenes/3-rebel.jpg' %}" alt="Emprendimiento de Ropa Vegana REBEL" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="https://www.facebook.com/Remeras.Rebel/" target="_blank" class="btn btn-dark btn-block mt-2">Rebel (Ropa)</a>
+            </div>
+            <!-- Dinamico -->
+            {% for a in amigos %}
+                    {% if a.name == 'Emprendimientos de ropa y cosmética' %}
+                        {% for post in a.get_posts.all %}
+
+            <div class="wow bounceInUp col-8 col-md-3 mb-3"data-wow-delay="0.6s">
+                <img src="{{ post.image.url }}" alt="{{ post.name }}" class="img-fluid rounded-circle border border-primary mt-2">
+                <a href="{{ post.url }}" target="_blank" class="btn btn-dark btn-block mt-2">{{ post.name }}</a>
+                {% if user.is_authenticated %}
+                    <p> <a href="{% url 'admin:emprendimientos_emprendimiento_change' post.id %}"> Editar </a> </p>
+                  {% endif %}
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>   
+        
+        <!-- RESTAURANTES -->
+
+    <h2 id="restaurantes" class="wow pulse text-center pt-5" data-wow-delay="0.4s">RESTAURANTES EN C.A.B.A.</h2>
+            <div class="row justify-content-center mt-3 mt-md-4">
+                <div class="wow zoomIn col-8 col-lg-3 col-md-5 mb-3"data-wow-delay="0.8s">
+                    <div class="card">
+                        <div class="card-body rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{% static 'core/imagenes/4-casa-munay.jpg' %}" alt="Restaurante Casa Munay en Palermo" class="img-fluid rounded-circle mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="http://casamunay.com/" target="_blank" class="h2">Casa Munay</a>
+                                    <p>Av. Scalabrini Ortiz 2018, Palermo</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7925.769394016856!2d-58.42380557044815!3d-34.58898196459795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb9ea22d9d3ddc34b!2sCasa+Munay!5e0!3m2!1ses-419!2sar!4v1561474427125!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                </div>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                <div class="wow zoomIn col-8 col-lg-3 col-md-5 mb-3"data-wow-delay="0.8s">
+                    <div class="card">
+                        <div class="card-body rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{% static 'core/imagenes/4-loving-hut.jpg' %}" alt="Restaurante Loving Hut en Palermo y Microcentro" class="img-fluid rounded-circle mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="https://www.facebook.com/LovingHut.Argentina/" target="_blank" class="h2">Loving Hut</a>
+                                    <p>Gorriti 4939, Palermo</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26276.801859029187!2d-58.43603385860243!3d-34.58898060047571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5885b5af3d3%3A0xae581a0475eb8f62!2sLoving+Hut!5e0!3m2!1ses-419!2sar!4v1561476527043!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                    <p class="mt-1">Perón 1319, Microcentro</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13135.658375972593!2d-58.394211830224634!3d-34.60632109999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccac50429adbf%3A0x256b221d7a3a7c5b!2sLoving+Hut+Microcentro!5e0!3m2!1ses-419!2sar!4v1561476579969!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                </div>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                <div class="wow zoomIn col-8 col-lg-3 col-md-5 mb-3"data-wow-delay="0.8s">
+                    <div class="card">
+                        <div class="card-body rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{% static 'core/imagenes/4-green-factory.jpg' %}" alt="Restaurante Green Factory en Devoto" class="img-fluid rounded-circle mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="http://www.greenfactory.com.ar/" target="_blank" class="h2">Green Factory</a>
+                                    <p>Sanabria 4509, Villa Devoto</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.225259981577!2d-58.52045428491988!3d-34.598464980460875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7c8447f6177%3A0x3b54e3b00b8f49a6!2sGreenFactory%C2%AE!5e0!3m2!1ses-419!2sar!4v1561476681216!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                </div>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                <div class="wow zoomIn col-8 col-lg-3 col-md-5 mb-3"data-wow-delay="0.8s">
+                    <div class="card">
+                        <div class="card-body rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{% static 'core/imagenes/4-veggie-medio-oriente.png' %}" alt="Restaurante Veggie Medio Oriente en Microcentro" class="img-fluid rounded-circle mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="http://www.greenfactory.com.ar/" target="_blank" class="h2">Veggie Medio Oriente</a>
+                                    <p>Suipacha 532, Microcentro</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.08393574416!2d-58.38187868491972!3d-34.602038980459916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaced2137e2d%3A0x4365640d6b17396c!2sVeggie+Medio+Oriente!5e0!3m2!1ses-419!2sar!4v1561476743768!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                    <p class="mt-1">San Martin 545, Microcentro</p>
+                                    <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.098626309663!2d-58.37599858491967!3d-34.60166748046002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacced894561%3A0xf1ced8cb13b621ff!2sVeggie+Medio+Oriente!5e0!3m2!1ses-419!2sar!4v1561476793447!5m2!1ses-419!2sar" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                </div>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dinamico -->
+                
+                {% for a in amigos %}
+                    {% if a.name == 'RESTAURANTES EN C.A.B.A.' %}
+                        {% for post in a.get_posts.all %}
+                        
+                   
+                <div class="wow zoomIn col-8 col-lg-3 col-md-5 mb-3"data-wow-delay="0.8s">
+                    <div class="card">
+                        <div class="card-body rounded">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="{{ post.image.url }}" alt="{{ post.name }}" class="img-fluid rounded-circle mx-auto d-block">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="{{ post.url }}" target="_blank" class="h2">{{ post.name }}</a>
+                                    <p>{{ post.content|safe }}</p>
+                                    <div><iframe src="{{ post.url_iframe }}" frameborder="0" style="border:0" allowfullscreen class="mapa"></iframe></div>
+                                    {% if user.is_authenticated %}
+                                     <p> <a href="{% url 'admin:emprendimientos_emprendimiento_change' post.id %}"> Editar </a> </p>
+                                    {% endif %}
+                                 </div>
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </div>   
+           
+</div>
+<div class="ocultar vaca-arriba">
+  <a href="#" >
+      <img src="{% static 'core/imagenes/iconos/vaca-arriba-violeta.png' %}" alt="Boton Ir Arriba" class="img-fluid">
+  </a>
+</div>   
+<!-- Cierre contenido -->
+
+{% endblock %}
+    
+      
+{% block scripts %}
+
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'core/vendor/jquery/jquery-3.4.1.js' %}"></script>
+  
+  <script>
+      $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('div.vaca-arriba').removeClass('ocultar'); 
+            } else {
+                $('div.vaca-arriba').addClass('ocultar');
+            }
+        });
+        $('div.vaca-arriba').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 600);
+        });
+  </script>
+   
+   
+    <script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script>
+{% endblock %}

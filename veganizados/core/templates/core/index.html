@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+  
+  <!-- Contenido -->
+  <header>
+      <h1 class="wow bounceInLeft text-center mt-5 pt-5 display-1 text-warning">Veganizate</h1>
+  </header>
+
+  <h1 class="titulo2 text-center pt-3 display-3 text-warning">Veganizate</h1>
+<main class="contenido-principal">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-7 col-lg-6 pt-md-3 pt-lg-5">
+       <h2>Veganismo en Buenos Aires</h2>
+        <p class="lead pt-5 text-justify">Blog informativo relativo al mundo vegano, con contenidos de interés para veganos y simpatizantes del veganismo, vegetarianismo y la compasión animal que desean el fin del especismo.
+        Nuestro afán es el de informar de manera veraz y contrastada para crear mayor conciencia entorno a la explotación animal y a la crueldad que sufren los animales. Queremos dar mayor visibilidad a la barbarie que hay detrás de la industria ganadera y de las granjas intensivas de producción para despertar mentes y concienciar de la esclavitud a la que estamos sometiendo a los animales para satisfacer nuestro consumo propio.
+        En este blog también damos alternativas de nutrición vegana, para sustituir platos que contengan ingredientes de animales, y sus derivados, por ingredientes vegetales, mucho más saludables y beneficiosos para nuestra salud.
+        Trabajamos por un mundo mejor, un mundo sin esclavitud para ningún animal, sea de la especie que sea. </p>
+      </div>
+      <div class="col-12 col-md-3 col-lg-4 ">
+          <div class="py-1">
+              <a href="{% url 'nutricion' %}#sano"><img src="{% static 'core/imagenes/boton-1.jpg' %}" alt="Link a 'Reglas básicas para llevar una alimentación vegana saludable'" class="boton-index img-fluid"></a>
+          </div>
+          <div class="py-1">
+              <a href="{% url 'conciencia' %}#porqueser"><img src="{% static 'core/imagenes/boton-2.jpg' %}" alt="Link a '¿Por qué ser vegano?'"class="boton-index img-fluid"></a>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--
+<div class="jumbotron mt-4 mt-md-5 nuevo-light">
+  <div class="container">
+     <h1 class="display-3 text-secondary">FERIA VEGANIZADA</h1>
+  <p>Vení a la primer feria gastronómica de Veganizados en C.A.B.A. <br>
+  Encontrarás gran variedad de comida tanto para consumir en el evento como para llevar a tu casa y congelar, productos de cuidado personal, cosmética, accesorios y ropa. <br> 
+  La entrada es gratuíta ¡Te esperamos!</p>
+  <p><a class="btn btn-warning btn-lg" href="../../FERIA-VEGANA/index.html" role="button">Sitio del evento</a></p>
+  </div>
+</div>
+ -->
+
+
+</main>
+{% endblock %}
+
+{% block scripts %}
+
+  <script src="{% static 'core/vendor/jquery/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'core/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   
+   
+    <script src="{% static 'core/vendor/wow/wow.min.js' %}"></script>
+
+    <script>
+        new WOW().init();
+    </script> 
+{% endblock %}
